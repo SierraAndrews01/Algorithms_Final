@@ -24,7 +24,9 @@ public class Driver {
         lst.deleteElement(12);
         lst.displayList();
 
-//        lst.search(9);
+        lst.search(9);
+        lst.search(30);
+        lst.search(17);
 
         pLevelTest0_25();
     }

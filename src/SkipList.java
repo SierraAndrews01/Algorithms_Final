@@ -142,23 +142,27 @@ public class SkipList {
 
     void search(int key){
         Node current = header;
+        int foundLevel = -1;
 
-            /* start from highest level of skip list move the current pointer forward while
-            key is greater than key of node next to current and move one level down and continue search */
-        for (int i = level; i >=0 ; i--) {
+        /* start from highest level of skip list move the current pointer forward while
+        key is greater than key of node next to current and move one level down and continue search */
+        for (int i = level; i >= 0 ; i--) {
             while (current.forward[i] != null && current.forward[i].key < key) {
                 current = current.forward[i];
+                if(i > foundLevel) {
+                    foundLevel = i;
+                }
             }
         }
 
         current = current.forward[0];
 
         // current has to be the key if it is present
-        if(current !=null && current.key==key) {
-            System.out.println("Key found");
+        if(current !=null && current.key == key) {
+            System.out.println("Key " + key + " found on level " + foundLevel);
 
         } else{
-            System.out.println("Key not found");
+            System.out.println("Key " + key + " not found");
         }
     }
 }
