@@ -9,6 +9,7 @@ public class Driver {
         lst.insertElement(6);
         lst.insertElement(7);
         lst.insertElement(9);
+        lst.insertElement(30);
         lst.insertElement(12);
         lst.insertElement(19);
         lst.insertElement(17);
@@ -16,9 +17,11 @@ public class Driver {
         lst.insertElement(21);
         lst.insertElement(25);
         lst.displayList();
+
         lst.deleteElement(9);
         lst.deleteElement(12);
         lst.displayList();
+
         lst.search(9);
 
     }
