@@ -25,10 +25,23 @@ public class Driver {
         lst.displayList();
 
         lst.search(9);
+        lst.search(3);
+        lst.search(6);
+        lst.search(7);
         lst.search(30);
+        lst.search(12);
+        lst.search(19);
         lst.search(17);
+        lst.search(26);
+        lst.search(21);
+        lst.search(25);
 
+        System.out.println("\n");
         pLevelTest0_25();
+        System.out.println("\n");
+        pLevelTest0_75();
+        System.out.println("\n");
+        pLevelTest0_90();
     }
 
     //different P levels
@@ -51,11 +64,6 @@ public class Driver {
         System.out.println("P = 0.25");
 
         lst.displayList();
-
-        lst.deleteElement(9);
-        lst.deleteElement(12);
-        lst.displayList();
-
     }
 
     public static void pLevelTest0_75(){
@@ -77,12 +85,6 @@ public class Driver {
         System.out.println("P = 0.75");
 
         lst.displayList();
-
-        lst.deleteElement(9);
-        lst.deleteElement(12);
-        lst.displayList();
-
-
     }
 
     public static void pLevelTest0_90(){
@@ -104,10 +106,5 @@ public class Driver {
         System.out.println("P = 0.90");
 
         lst.displayList();
-
-        lst.deleteElement(9);
-        lst.deleteElement(12);
-        lst.displayList();
-
     }
 }

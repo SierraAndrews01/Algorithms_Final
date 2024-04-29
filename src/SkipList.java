@@ -149,16 +149,16 @@ public class SkipList {
         for (int i = level; i >= 0 ; i--) {
             while (current.forward[i] != null && current.forward[i].key < key) {
                 current = current.forward[i];
-                if(i > foundLevel) {
-                    foundLevel = i;
-                }
+            }
+            if(i > foundLevel && current.forward[i] != null && current.forward[i].key == key) {
+                foundLevel = i;
             }
         }
 
         current = current.forward[0];
 
         // current has to be the key if it is present
-        if(current !=null && current.key == key) {
+        if(current != null && current.key == key) {
             System.out.println("Key " + key + " found on level " + foundLevel);
 
         } else{
