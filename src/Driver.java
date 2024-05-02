@@ -43,6 +43,11 @@ public class Driver {
         pLevelTest0_75();
         System.out.println("\n");
         pLevelTest0_90();
+
+        //Boundary testing
+        BoundaryInsertionTest();
+        BoundaryDeletionTest();
+        EmptyTest();
     }
 
     //different P levels
@@ -107,5 +112,30 @@ public class Driver {
         System.out.println("P = 0.90");
 
         lst.displayList();
+    }
+
+    public static void BoundaryInsertionTest(){
+        SkipList lst = new SkipList(3, 0.5f);
+        lst.insertElement(0);
+        lst.insertElement(1000);
+        lst.displayList();
+    }
+
+    public static void BoundaryDeletionTest(){
+        SkipList lst = new SkipList(3, 0.5f);
+        lst.insertElement(0);
+        lst.insertElement(500);
+        lst.insertElement(1000);
+
+        lst.deleteElement(0);
+        lst.deleteElement(1000);
+        lst.displayList();
+    }
+
+    public static void EmptyTest(){
+        SkipList lst = new SkipList(3, 0.5f);
+
+       lst.search(10);
+
     }
 }
