@@ -1,6 +1,17 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+
 public class Driver {
     // Driver to test above code
-    public static void main(String[] args) {
+    public static ArrayList<Long> insertionTimes = new ArrayList<>();
+    public static ArrayList<Long> searchTimes = new ArrayList<>();
+    public static ArrayList<Long> deleteTimes = new ArrayList<>();
+
+    public static void main(String[] args) throws IOException {
         // create SkipList object with MAXLVL and P
         SkipList lst = new SkipList(3, 0.5f);
 
@@ -43,10 +54,16 @@ public class Driver {
         pLevelTest0_75();
         System.out.println("\n");
         pLevelTest0_90();
+
+        // run max level testing
+        // 0 = worst case = same as linked list
+        ArrayList<Integer> maxLevels = new ArrayList<>(Arrays.asList(0, 2, 4, 6, 8, 10));
+        maxLevelTesting(maxLevels);
+
     }
 
     //different P levels
-    public static void pLevelTest0_25(){
+    public static void pLevelTest0_25() {
         // create SkipList object with MAXLVL and P
         SkipList lst = new SkipList(3, 0.25f);
 
@@ -67,7 +84,7 @@ public class Driver {
         lst.displayList();
     }
 
-    public static void pLevelTest0_75(){
+    public static void pLevelTest0_75() {
         // create SkipList object with MAXLVL and P
         SkipList lst = new SkipList(3, 0.75f);
 
@@ -88,7 +105,7 @@ public class Driver {
         lst.displayList();
     }
 
-    public static void pLevelTest0_90(){
+    public static void pLevelTest0_90() {
         // create SkipList object with MAXLVL and P
         SkipList lst = new SkipList(3, 0.90f);
 
@@ -107,5 +124,35 @@ public class Driver {
         System.out.println("P = 0.90");
 
         lst.displayList();
+    }
+
+    public static void max_level_test(int maxLevel) {
+        // create SkipList object with MAXLVL and P
+        SkipList lst = new SkipList(maxLevel, 0.50f);
+
+        lst.insertElement(3);
+        lst.insertElement(6);
+        lst.insertElement(7);
+        lst.insertElement(9);
+        lst.insertElement(30);
+        lst.insertElement(12);
+        lst.insertElement(19);
+        lst.insertElement(17);
+        lst.insertElement(26);
+        lst.insertElement(21);
+        lst.insertElement(25);
+
+        System.out.println("\n");
+        System.out.println("P = 0.50");
+        System.out.println("Max level = " + maxLevel);
+
+        lst.displayList();
+    }
+
+    public static void maxLevelTesting(ArrayList<Integer> maxLevels) {
+        for(int i = 0; i < maxLevels.size(); i++){
+            int tempLevel = maxLevels.get(i);
+            max_level_test(tempLevel);
+        }
     }
 }
