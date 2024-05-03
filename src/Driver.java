@@ -1,17 +1,8 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
 public class Driver {
-    // Driver to test above code
-    public static ArrayList<Long> insertionTimes = new ArrayList<>();
-    public static ArrayList<Long> searchTimes = new ArrayList<>();
-    public static ArrayList<Long> deleteTimes = new ArrayList<>();
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         // create SkipList object with MAXLVL and P
         SkipList lst = new SkipList(3, 0.5f);
 
@@ -84,7 +75,7 @@ public class Driver {
         lst.insertElement(21);
         lst.insertElement(25);
 
-        System.out.println("P = 0.25");
+        System.out.println("\nP = 0.25");
 
         lst.displayList();
     }
