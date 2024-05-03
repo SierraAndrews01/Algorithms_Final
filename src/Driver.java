@@ -60,6 +60,11 @@ public class Driver {
         ArrayList<Integer> maxLevels = new ArrayList<>(Arrays.asList(0, 2, 4, 6, 8, 10));
         maxLevelTesting(maxLevels);
 
+
+        //Boundary testing
+        BoundaryInsertionTest();
+        BoundaryDeletionTest();
+        EmptyTest();
     }
 
     //different P levels
@@ -154,5 +159,30 @@ public class Driver {
             int tempLevel = maxLevels.get(i);
             max_level_test(tempLevel);
         }
+    }
+
+    public static void BoundaryInsertionTest(){
+        SkipList lst = new SkipList(3, 0.5f);
+        lst.insertElement(0);
+        lst.insertElement(1000);
+        lst.displayList();
+    }
+
+    public static void BoundaryDeletionTest(){
+        SkipList lst = new SkipList(3, 0.5f);
+        lst.insertElement(0);
+        lst.insertElement(500);
+        lst.insertElement(1000);
+
+        lst.deleteElement(0);
+        lst.deleteElement(1000);
+        lst.displayList();
+    }
+
+    public static void EmptyTest(){
+        SkipList lst = new SkipList(3, 0.5f);
+
+       lst.search(10);
+
     }
 }
